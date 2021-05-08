@@ -1,1 +1,1 @@
-# AZURE-WCF-CLASSIC
+# Azure-WCF-Classic
