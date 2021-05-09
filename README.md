@@ -1,5 +1,5 @@
 # Azure-WCF-Classic
-This example demostrate how we can build an Azure Cloud Service (Classic) to host WCF using Worker role. There are 6 projects in the solution.
+This example demostrates how we can build an Azure Cloud Service (Classic) to host WCF using Worker role. There are 6 projects in the solution.
 
 1. API - Contains a contract service.
 2. SRC - Implements the API. 
