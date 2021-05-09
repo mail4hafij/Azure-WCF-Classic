@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceDefinition name="WCF.AZURE" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6">
+  <WebRole name="WCFWEB" vmsize="Standard_D1_v2">
+    <Sites>
+      <Site name="Web">
+        <Bindings>
+          <Binding name="Endpoint1" endpointName="WEBHTTPENDPOINT" />
+        </Bindings>
+      </Site>
+    </Sites>
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
+      <Setting name="APPINSIGHTS_INSTRUMENTATIONKEY" />
+    </ConfigurationSettings>
+    <Endpoints>
+      <InputEndpoint name="WEBHTTPENDPOINT" protocol="http" port="80" />
+    </Endpoints>
+    <LocalResources>
+    </LocalResources>
+    <Imports>
+      <Import moduleName="RemoteAccess" />
+    </Imports>
+  </WebRole>
+  <WorkerRole name="WCFWORKER" vmsize="Standard_D1_v2">
+    <!-- Allowing us to write into cloud computer (i.e., If we want to write some log files into the C dirve) -->
+    <Runtime executionContext="elevated" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
+      <Setting name="APPINSIGHTS_INSTRUMENTATIONKEY" />
+    </ConfigurationSettings>
+    <Endpoints>
+      <InputEndpoint name="TCPENDPOINT" protocol="tcp" port="10100" />
+    </Endpoints>
+    <Imports>
+      <Import moduleName="RemoteAccess" />
+      <Import moduleName="RemoteForwarder" />
+    </Imports>
+  </WorkerRole>
+</ServiceDefinition>
