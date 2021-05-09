@@ -8,6 +8,8 @@ This example demostrates how we can build an Azure Cloud Service (Classic) to ho
 5. WCFWEB - This is the web role. It exposes SRC project using http.
 6. RESTAPI - This is top level API. It can get data either from WCFWORKER or WCFWEB.
 
+## Conceptual model
+<img src="wcf.jpg" />
 
 ## How to run locally
   - Create two databases "HelloWorld" and "LoremIpsum". Create tables Cats, Dogs for the "HelloWorld" database and create table Tigers for LoremIpsum database. Each  table has only two columns (i.e., CatId, Color). Populate some default data.
